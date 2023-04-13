@@ -27,10 +27,15 @@
         <div id="timer">Time Remaining = <span id="time-left"></span></div>
     </div>
     <div id="results" style="display: none">
+        <h1>Final Score</h2>
+        <div id="score"></div>
         <form>
             <label for="name">Enter your name!</label>
-            <input type="text">
+            <input type="text" maxLength="12"></input>
         </form>
+
+        <button type="button" id="submit">Submit</button>
+        <button type="button" id="retry">Retry Quiz</button>
     </div>
     <script src="/assets/js/script.js"></script>
 </body>

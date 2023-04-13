@@ -57,26 +57,7 @@ var questions = [
     }
 ];
 
-startButton.addEventListener("click", startquiz)
-
-function startquiz () {
-    countdown();
-}
-
-function countdown () {
-    var timerInterval = setInterval(function() {
-        if (timeLeft > 0) {
-            timeLeft--;
-            timeLeftEl.textContent = timeLeft
-        }
-        if (timeleft === 0) {
-            clearInterval(timerInterval);
-            timeLeftEl.textContent = 'Time is up!';
-        }
-    }, 1000);
-};
-
-/*startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function() {
     var timerInterval = setInterval(function() {
         if (timeLeft > 0) {
             timeLeft--;
@@ -88,4 +69,4 @@ function countdown () {
             timeLeftEl.textContent = 'Time is up!';
         }
     }, 1000);
-});*/
+});
