@@ -45,3 +45,35 @@ h1 {
 header {
     display:block;
 }
+
+.choice {
+    padding: 5px;
+    margin: auto;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    width: 15%;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.choice:hover {
+    background-color: lightskyblue;
+}
+
+#question {
+    font-size: 32px;
+    padding:10px;
+}
+
+#timer {
+    font-size: 32px;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    width: 15%;
+    border-radius: 12px;
+    text-align:center;
+    margin: auto;
+    margin-top: 20px;
+}

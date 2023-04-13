@@ -10,33 +10,41 @@
 <body>
     <header>
         <a href="leaderboard.html" class="button" id="results">Results</a>
+        <div id="timer" style="display: none">Time Remaining <span id="time-left"></span></div>
+        <br>
     </header>
     <div class="container">
-        <h1>Coding Quiz Challenge</h1>
+        <div id="intro">
+            <h1>Coding Quiz Challenge</h1>
         <p id="information">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
         <button type="button" class="button" id="start">Start</button>
-    </div>
-    <div id="quiz" style="display: none">
-        <div id="question"></div>
-        <div id="choices">
-            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-            <div class="choice" id="D" onclick="checkAnswer('D')"></div>
         </div>
-        <div id="timer">Time Remaining = <span id="time-left"></span></div>
+        <div id="quiz" style="display: none">
+            <div id="question"></div>
+            <br>
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+                <br>
+                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+                <br>
+                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+                <br>
+                <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+            </div>
+        </div>
+        <div id="resultsPage" style="display: none">
+            <h1>Final Score</h2>
+            <div id="score"></div>
+            <form>
+                <label for="name">Enter your name!</label>
+                <input type="text" maxLength="12"></input>
+            </form>
+    
+            <button type="button" id="submit">Submit</button>
+            <button type="button" id="retry">Retry Quiz</button>
+        </div>
     </div>
-    <div id="results" style="display: none">
-        <h1>Final Score</h2>
-        <div id="score"></div>
-        <form>
-            <label for="name">Enter your name!</label>
-            <input type="text" maxLength="12"></input>
-        </form>
 
-        <button type="button" id="submit">Submit</button>
-        <button type="button" id="retry">Retry Quiz</button>
-    </div>
-    <script src="/assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

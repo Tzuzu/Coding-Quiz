@@ -1,13 +1,19 @@
+var info = document.getElementById('intro');
+var quiz = document.getElementById('quiz');
 var startButton = document.getElementById('start');
-var resultsButton = document.getElementbyId('results');
+var resultsButton = document.getElementById('results');
+var resultsPage = document.getElementById('resultsPage');
 var timerElement = document.getElementById('timer');
 var timeLeftEl = document.getElementById('time-left'); 
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
+var question = document.getElementById("question");
 
 var timeLeft = 99;
+var currentQuestion = 0;
+var quizCompleted = false;
 
 var questions = [ 
     {
@@ -57,7 +63,19 @@ var questions = [
     }
 ];
 
+var lastQuestion = questions.length -1;
+
 startButton.addEventListener("click", function() {
+    startQuiz();
+    showQuestions();
+});
+
+function startQuiz() {
+    info.style.display = 'none';
+    quiz.style.display = 'block';
+    resultsButton.style.display = 'none';
+    timerElement.style.display = 'block';
+
     var timerInterval = setInterval(function() {
         if (timeLeft > 0) {
             timeLeft--;
@@ -69,4 +87,31 @@ startButton.addEventListener("click", function() {
             timeLeftEl.textContent = 'Time is up!';
         }
     }, 1000);
-});
+}
+
+function showQuestions() {
+    console.log('test');
+    question.innerHTML = questions[currentQuestion].question
+    choiceA.innerHTML = questions[currentQuestion].choiceA
+    choiceB.innerHTML = questions[currentQuestion].choiceB
+    choiceC.innerHTML = questions[currentQuestion].choiceC
+    choiceD.innerHTML = questions[currentQuestion].choiceD
+}
+
+function checkAnswer(answer) {
+    if (answer === questions[currentQuestion].correct) {
+    }
+
+    else {
+        timeLeft -= 15;
+    }
+    currentQuestion++
+    showQuestions();
+}
+
+function checkFinished() {
+    if(currentQuestion > finalQuestion) {
+        quiz.style.display = 'none';
+        resultsPage.style.display = 'block';
+    }
+}
