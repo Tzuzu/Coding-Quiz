@@ -41,3 +41,7 @@ h1 {
 .button:hover {
     background-color: lightskyblue;
 }
+
+header {
+    display:block;
+}

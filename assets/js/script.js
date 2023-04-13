@@ -1,5 +1,5 @@
-var startButton = document.getElementById('start-button');
-var resultsButton = document.getElementbyId('results-button');
+var startButton = document.getElementById('start');
+var resultsButton = document.getElementbyId('results');
 var timerElement = document.getElementById('timer');
 var timeLeftEl = document.getElementById('time-left'); 
 var choiceA = document.getElementById("A");
@@ -57,20 +57,26 @@ var questions = [
     }
 ];
 
-var lastQuestion = questions.length -1;
-let runningQuestion = 0;
+startButton.addEventListener("click", startquiz)
 
-function renderQuestion(){
-    var q = questions[runningQuestion];
-
-    question.innerHTML = "<p>" + q.question +"</p>";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
-    choiceD.innerHTML = q.choiceD;
+function startquiz () {
+    countdown();
 }
 
-startButton.addEventListener("click", function() {
+function countdown () {
+    var timerInterval = setInterval(function() {
+        if (timeLeft > 0) {
+            timeLeft--;
+            timeLeftEl.textContent = timeLeft
+        }
+        if (timeleft === 0) {
+            clearInterval(timerInterval);
+            timeLeftEl.textContent = 'Time is up!';
+        }
+    }, 1000);
+};
+
+/*startButton.addEventListener("click", function() {
     var timerInterval = setInterval(function() {
         if (timeLeft > 0) {
             timeLeft--;
@@ -82,4 +88,4 @@ startButton.addEventListener("click", function() {
             timeLeftEl.textContent = 'Time is up!';
         }
     }, 1000);
-});
+});*/

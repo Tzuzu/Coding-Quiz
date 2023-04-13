@@ -8,12 +8,30 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <header>
+        <a href="leaderboard.html" class="button" id="results">Results</a>
+    </header>
     <div class="container">
         <h1>Coding Quiz Challenge</h1>
         <p id="information">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-        <a href="game.html" class="button" id="start-button">Start</a>
-        <a href="results.html" class="button" id="results-button">Results</a>
+        <button type="button" class="button" id="start">Start</button>
     </div>
-    <script src="assets/js/script.js"></script>
+    <div id="quiz" style="display: none">
+        <div id="question"></div>
+        <div id="choices">
+            <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+            <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+            <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+            <div class="choice" id="D" onclick="checkAnswer('D')"></div>
+        </div>
+        <div id="timer">Time Remaining = <span id="time-left"></span></div>
+    </div>
+    <div id="results" style="display: none">
+        <form>
+            <label for="name">Enter your name!</label>
+            <input type="text">
+        </form>
+    </div>
+    <script src="/assets/js/script.js"></script>
 </body>
 </html>
