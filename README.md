@@ -1,6 +1,6 @@
 # Coding-Quiz
 
-![Coding Quiz Website](examplewebsite.png)
+![Coding Quiz Website](./assets/images/examplewebsite.png)
 
 If you wish to view the website, you may do so from [here]()
 
