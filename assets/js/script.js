@@ -132,6 +132,7 @@ function checkAnswer(answer) {
 
 submitButton.addEventListener("click", function() {
     localStorage.setItem(nameInput.value, timeLeft)
+    document.location.reload()
 })
 
 retryButton.addEventListener("click", function() {
