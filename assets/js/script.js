@@ -2,8 +2,8 @@ var info = document.getElementById('intro');
 var quiz = document.getElementById('quiz');
 var startButton = document.getElementById('start');
 var resultsButton = document.getElementById('results');
-var submitButton = document.getElementById('submit');
 var retryButton = document.getElementById('retry');
+var submitButton = document.getElementById('submit');
 var resultsPage = document.getElementById('resultsPage');
 var timerElement = document.getElementById('timer');
 var timeLeftEl = document.getElementById('time-left'); 
@@ -13,7 +13,7 @@ var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 var question = document.getElementById("question");
-var name = document.getElementById("name");
+var nameInput = document.getElementById('name');
 
 var timeLeft = 99;
 var currentQuestion = 0;
@@ -81,6 +81,11 @@ function startQuiz() {
     timerElement.style.display = 'block';
 
     var timerInterval = setInterval(function() {
+        if (quizCompleted) {
+            clearInterval(timerInterval);
+            return;
+        }
+
         if (timeLeft > 0) {
             timeLeft--;
             timeLeftEl.textContent = timeLeft
@@ -90,17 +95,9 @@ function startQuiz() {
             clearInterval(timerInterval);
             timeLeftEl.textContent = 'Time is up!';
             quiz.style.display = 'none';
-            resultsButton.style.display = 'none';
-            timerElement.style.display = 'none';
-            info.style.display = 'block';
-            timeLeft.reset();
-            currentQuestion.reset();
-            quizCompleted.reset();
-        }
-
-        if (quizCompleted) {
-            clearInterval(timerInterval);
-            return;
+            resultsPage.style.display = 'block';
+            quizCompleted = true;
+            finalScore.textContent = "Your final score is " + timeLeft;
         }
     }, 1000);
 }
@@ -134,5 +131,9 @@ function checkAnswer(answer) {
 }
 
 submitButton.addEventListener("click", function() {
-    localStorage.setItem(name.value, timeLeft)
+    localStorage.setItem(nameInput.value, timeLeft)
+})
+
+retryButton.addEventListener("click", function() {
+    document.location.reload()
 })
