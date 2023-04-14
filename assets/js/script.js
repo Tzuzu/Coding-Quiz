@@ -2,14 +2,18 @@ var info = document.getElementById('intro');
 var quiz = document.getElementById('quiz');
 var startButton = document.getElementById('start');
 var resultsButton = document.getElementById('results');
+var submitButton = document.getElementById('submit');
+var retryButton = document.getElementById('retry');
 var resultsPage = document.getElementById('resultsPage');
 var timerElement = document.getElementById('timer');
 var timeLeftEl = document.getElementById('time-left'); 
+var finalScore = document.getElementById('finalScore');
 var choiceA = document.getElementById("A");
 var choiceB = document.getElementById("B");
 var choiceC = document.getElementById("C");
 var choiceD = document.getElementById("D");
 var question = document.getElementById("question");
+var name = document.getElementById("name");
 
 var timeLeft = 99;
 var currentQuestion = 0;
@@ -85,6 +89,18 @@ function startQuiz() {
         if (timeLeft === 0) {
             clearInterval(timerInterval);
             timeLeftEl.textContent = 'Time is up!';
+            quiz.style.display = 'none';
+            resultsButton.style.display = 'none';
+            timerElement.style.display = 'none';
+            info.style.display = 'block';
+            timeLeft.reset();
+            currentQuestion.reset();
+            quizCompleted.reset();
+        }
+
+        if (quizCompleted) {
+            clearInterval(timerInterval);
+            return;
         }
     }, 1000);
 }
@@ -103,15 +119,20 @@ function checkAnswer(answer) {
     }
 
     else {
-        timeLeft -= 15;
+        timeLeft -= 10;
     }
     currentQuestion++
-    showQuestions();
-}
-
-function checkFinished() {
-    if(currentQuestion > finalQuestion) {
-        quiz.style.display = 'none';
-        resultsPage.style.display = 'block';
+    if (currentQuestion > lastQuestion) {
+        quiz.style.display ='none';
+        resultsPage.style.display = 'block'
+        timerElement.style.display = 'none'
+        quizCompleted = true;
+        finalScore.textContent = "Your final score is " + timeLeft;
+    } else {
+        showQuestions();
     }
 }
+
+submitButton.addEventListener("click", function() {
+    localStorage.setItem(name.value, timeLeft)
+})
