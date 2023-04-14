@@ -1,8 +1,8 @@
 # Coding-Quiz
 
-![Coding Quiz Website](assets/images/examplewebsite.png)
+![Coding Quiz Website](example.png)
 
-If you wish to view the website, you may do so from [here]()
+If you wish to view the website, you may do so from [here](https://tzuzu.github.io/Coding-Quiz/)
 
 ## Purpose
 
